@@ -13,6 +13,7 @@ public class MyUtil {
 	public static Random random = new Random();
 	public static final String ERRORE_NUMERICO = "Attenzione: inserire un valore numerico!";
 	public static final String ERRORE_COMPRESO_INT = "Attenzione: inserire un valore numerico compreso tra %d e %d!\n";
+	public static final String ERRORE_NON_POSITIVO = "Attenzione: inserire un numero positivo!";
 	public static final String ERRORE_STRINGA_VUOTA = "Attenzione: inserire una stringa non vuota!\n";
 	public static final String SI_O_NO = " (S/N)";
 	public static final String ERRORE_SI_O_NO = "Attenzione: inserire S o N!";
@@ -156,6 +157,23 @@ public class MyUtil {
 
 	}
 	
+	public static int leggiIntPositivo() {
+		
+		int letto = 0;
+		boolean finito = false;
+		
+		do {
+			
+			letto = leggiInt();
+			
+			if (letto > 0) finito = true;
+			else System.out.println(ERRORE_NON_POSITIVO);
+			
+		} while (!finito);
+		
+		return letto;
+		
+	}
 	/**
 	 * Metodo per leggere da tastiera una stringa non vuota fino all'immissione dell'a-capo.
 	 * @return La stringa non vuota letta.
